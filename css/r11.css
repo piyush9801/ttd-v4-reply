@@ -1,0 +1,35 @@
+/* The Talent Dept. · round 11 (19 Oct 2026). Strip back: one story in five beats, a flat hero (no blur, no tilt),
+   black only in hints, coral the one pop, no icons. Loaded after r10.css and r10-contrast.css. */
+
+/* ---- hero: flat on the page. The blocks are drawn by js/hero2.js over the words they hide. */
+.hero4 .stage{perspective:none}
+.hb .far{transform:none;filter:none}
+.hb .sw{position:absolute;inset:0;pointer-events:none;z-index:2}
+.hb .sw i{position:absolute;display:block;background:var(--ink);transform-origin:50% 50%;will-change:transform}
+.hb .sw i.c{background:var(--coral)}
+.hero4.sw-on .hl .dash{visibility:hidden}
+
+/* ---- home, the names: the wall, on tan, always readable */
+.names2{padding:22vh var(--m) 20vh}
+.names2 .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7vh}
+@media (max-width:760px){ .names2{padding:110px var(--m)} }
+
+/* ---- the footer, light again: paper, Ink lines, the one Signal gap */
+.foot3{background:var(--light);color:var(--ink)}
+
+/* ---- The Work head, built like The Dept.'s: the title, then the seven services in one row */
+.ag-w{padding-bottom:12vh}
+.ag-row ul a[data-sp]{cursor:pointer}
+
+/* ---- the shelf: tan spines on paper, Ink names; Talent Booking the one Signal spine */
+.sp-b{background:var(--tan);color:var(--ink);box-shadow:inset -1px 0 0 var(--hair)}
+.sp:not(.on) .sp-b:hover{background:#DDD3C2}
+.sp.sig .sp-b{background:var(--coral);color:var(--ink);box-shadow:none}
+.sp.sig:not(.on) .sp-b:hover{background:#CE5444}
+@media (max-width:760px){ .sp-b{box-shadow:none} }
+
+/* ---- The Work, the strip: the photographs run to the page edges, never past them */
+.wk-strip{overflow-x:clip}
+
+/* ---- the wall on a phone: the longest big name fits the measure, never past it, never split */
+@media (max-width:760px){ .names2 .wall .ws{font-size:7.2vw;line-height:1.24} .names2 .wall .n.big{font-size:1.2em} }

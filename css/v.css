@@ -1,0 +1,164 @@
+/* The Talent Dept. · round 12 · v4 Reply. Loaded after r10.css, r10-contrast.css and r11.css.
+   "Every good conversation leaves room for a reply." The Line of Sight blocks that hide the statement become the
+   brand's Reply page (Brand Standards 32): long, short, short, long Ink rules through the statement, one Signal rule
+   as the room for a reply. Rules carry through the site: the services, the page heads, the footer. */
+
+:root{--rule:.19em}
+
+/* ================================================================ hero */
+/* the statement is centred and set on an even grid: with line-height 1.64 the word dashes (on the x-height) and the
+   rails between the lines fall on one pitch of 0.82 em, so every pose is a set of rows */
+.hero4{--hs:clamp(40px,min(6.7vw,10.6vh),136px)}
+.js:not(.still) .hero4{height:300vh}
+.hero4 .hb{top:48%;font-size:var(--hs);line-height:1.64}
+.hero4 .hl{text-align:center;line-height:inherit;padding:0 var(--m)}
+.hero4 .hl .dash{top:calc(50% + .37em - .27em - var(--rule) / 2);height:var(--rule)}
+.hero4 .hl .room{display:inline-block;width:var(--room,3.1em);height:var(--rule);margin-left:.26em;vertical-align:.17em}
+.hero4 br.m{display:none}
+.hb .sw i.r{background:var(--draft)}
+.hb .sw i{transform-origin:50% 50%}
+/* before the script has drawn the blocks, the frame is the statement's dashes (no words); if the script never comes,
+   the statement shows after a moment */
+.js:not(.still) .hero4:not(.live) .hb{opacity:0;animation:v-show 0s 1.4s forwards}
+@keyframes v-show{to{opacity:1}}
+.js .hero4:not(.live) .hl .tx{clip-path:none}
+.js:not(.still) .hero4:not(.live) .hl .dash{display:none}
+.still .hero4 .hl .tx{clip-path:none}
+.still .hero4:not(.live) .hl .dash{display:none}
+@media (max-width:760px){
+  .hero4{--hs:10.6vw}
+  .hero4 br.m{display:inline} .hero4 br.d{display:none}
+  .hero4 .hl .room{display:none}
+  .hero4 .hb{top:47%;line-height:2}
+  .js:not(.still) .hero4{height:280vh}
+}
+@media (prefers-reduced-motion:reduce){ .js:not(.still) .hero4{height:auto} .hero4 .stick{position:relative} }
+.hb .sw i{will-change:auto}
+.hero4 .hl .pd .tx{text-align:left}
+
+/* ================================================================ the footer: the reply
+   The hero is the statement, in Ink, its rules run through it, the room left empty after it. The footer is the
+   reply: the same rule system (thickness 0.19 em of its text, long and short in page 32's ratio, the hero's pitch)
+   in Draft, the replies' colour in Line of Sight, around the sentence that names the room. The address answers. */
+.foot3{background:var(--light);padding:20vh var(--m) 4vh}
+.reply{--fs:clamp(22px,2.5vw,46px);font-size:var(--fs);row-gap:.62em}
+.reply .ln{height:var(--rule);background:var(--draft)}
+.reply .l1{width:19.6em} .reply .l2{width:12.5em}
+.reply .say{font-size:1em;line-height:1.2;font-weight:300;letter-spacing:-.014em;column-gap:.55em;margin:.42em 0}
+.reply .gap{width:5.4em;height:var(--rule)}
+.foot3 .mail{margin-top:9vh;font-size:var(--d3);letter-spacing:-.012em}
+@media (max-width:760px){
+  .foot3{padding:96px var(--m) 28px}
+  .reply{--fs:7.4vw;row-gap:.7em}
+  .reply .ln.l1{width:86vw} .reply .ln.l2{width:55vw}
+  .reply .say{line-height:1.5;margin:.3em 0}
+  .reply .gap{width:4.2em;margin:0 .25em;vertical-align:.3em}
+  .foot3 .mail{margin-top:56px;font-size:22px}
+}
+
+/* ================================================================ inner pages: the rule as the system
+   One moment per page. The Work: the services index, its rule travelling on rails. The Dept.: How we show up, each
+   word's rule drawn as it enters, then its reply. Contact: the headline draws its pause. */
+.rr{display:block;background:var(--ink);height:var(--rule)}
+
+/* ---- The Work: the head carries the paragraph; the services sit on the hero's grid */
+.ag-w{padding-bottom:7vh}
+.wk-q{grid-column:1/13;margin-top:7vh}
+.sv{padding:4vh var(--m) 20vh}
+.sv-l{margin-bottom:3.4vh}
+.sv-g{position:relative;--sf:clamp(28px,3.3vw,62px)}
+.sv-n{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:start}
+.sv-n>li{display:contents}
+.sv-b{all:unset;box-sizing:border-box;grid-column:1/7;cursor:pointer;display:flex;align-items:baseline;column-gap:.7em;
+  font-size:var(--sf);line-height:1.64;font-weight:300;letter-spacing:-.022em;color:var(--ink70);transition:color .35s ease;
+  -webkit-tap-highlight-color:transparent}
+.sv-b .n{flex:none;width:2.6em;font:500 12px/1 var(--f);letter-spacing:.08em;color:var(--ink70);transform:translateY(-.1em)}
+.sv-b .t{white-space:nowrap}
+.sv-b.on,.sv-b:hover{color:var(--ink)}
+.sv-b:focus-visible{outline:2px solid var(--coral);outline-offset:6px}
+.sv-r{position:absolute;left:0;top:0;width:100px;font-size:var(--sf);height:var(--rule);background:var(--ink);transform-origin:0 50%;
+  transform:scaleX(0);pointer-events:none}
+.sv-r.sig{background:var(--coral)}
+.sv-p{grid-column:8/13;grid-row:1/span 7;display:none;padding-top:calc(var(--sf) * .42)}
+.sv-p.on{display:block;animation:sv-in .55s cubic-bezier(.22,1,.36,1) both}
+@keyframes sv-in{from{opacity:0;transform:translateY(14px)}}
+.sv-p h3{font-size:var(--d3);line-height:1.08;letter-spacing:-.014em;font-weight:400;margin-top:.7em;max-width:14em}
+.sv-p .ld{margin-top:1.4em;font-weight:500;max-width:28em}
+.sv-p .bd{margin-top:.6em;color:var(--ink70);max-width:32em}
+.sv-p .it{margin-top:3.4vh;display:grid;grid-template-columns:1fr 1fr;column-gap:2em;row-gap:.75em;font-size:var(--small);line-height:1.4;max-width:40em}
+.sv-p .it li{display:grid;grid-template-columns:1.6em 1fr;align-items:baseline}
+.sv-p .it li::before{content:"";width:1em;height:3px;background:var(--ink);transform:translateY(-.3em)}
+@media (max-width:1100px){ .sv-b{grid-column:1/8} .sv-p{grid-column:8/13} .sv-p .it{grid-template-columns:1fr} }
+@media (max-width:760px){
+  .ag-w{padding-bottom:40px} .wk-q{margin-top:40px}
+  .sv{padding:20px var(--m) 100px}
+  .sv-g{--sf:7.6vw}
+  .sv-n{display:block}
+  .sv-b{display:flex;width:100%;column-gap:.55em}
+  .sv-b .n{width:2.2em}
+  .sv-p{padding:.5em 0 2.4em calc(var(--sf) * .55 + 2.2em * 0)}
+  .sv-p h3{margin-top:.4em}
+  .sv-p .it{grid-template-columns:1fr}
+}
+
+/* ---- The Dept.: How we show up. Each word a statement, its rule the pause, its line the reply. The three step
+   across the page in cadence. On the tan: the charcoal plane is gone, black stays a hint. */
+.hs{padding:18vh var(--m) 18vh;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);row-gap:7vh;--hf:clamp(52px,7.2vw,140px)}
+.hs-l{grid-column:1/13}
+.hs-r{display:grid;justify-items:start;align-content:start}
+.hs-r.r1{grid-column:1/7} .hs-r.r2{grid-column:4/10} .hs-r.r3{grid-column:7/13}
+.hs-k{display:inline-grid;font-size:var(--hf)}
+.hs-w{font-size:1em;line-height:1;letter-spacing:-.026em;font-weight:300}
+.hs-w i{color:inherit;font-weight:300}
+.hs-k .rr{margin-top:.34em;transform-origin:0 50%}
+.hs-m{margin-top:2.6vh;font-size:var(--d4);line-height:1.3;max-width:21em;display:grid;grid-template-columns:2.4em 1fr}
+.hs-m span{font:500 12px/2.2 var(--f);letter-spacing:.08em;color:var(--ink70)}
+.hs-end{grid-column:7/13;display:grid;row-gap:.9em;justify-items:start;margin-top:3vh}
+.hs-end .u{text-decoration:none}
+.js .hs.pre .rr{transform:scaleX(0)}
+.js .hs.pre .hs-m{opacity:0;transform:translateY(.6em)}
+.js .hs.in .rr{transform:none;transition:transform 1s cubic-bezier(.3,1.16,.4,1)}
+.js .hs.in .hs-m{opacity:1;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+.js .hs.in .r1 .rr{transition-delay:0s} .js .hs.in .r1 .hs-m{transition-delay:.42s}
+.js .hs.in .r2 .rr{transition-delay:.26s} .js .hs.in .r2 .hs-m{transition-delay:.68s}
+.js .hs.in .r3 .rr{transition-delay:.52s} .js .hs.in .r3 .hs-m{transition-delay:.94s}
+@media (max-width:760px){
+  .hs{display:block;padding:100px var(--m);--hf:15vw}
+  .hs-l{margin-bottom:44px}
+  .hs-r{margin-top:40px} .hs-r.r2{padding-left:10vw} .hs-r.r3{padding-left:20vw}
+  .hs-m{font-size:18px;margin-top:18px}
+  .hs-end{margin-top:56px}
+}
+
+/* ---- Contact: the headline draws its pause after the full stop, out to the margin; the address replies below */
+.ct-h{display:flex;align-items:baseline;white-space:nowrap}
+.ct-h .hw{flex:none}
+.ct-h .rr{flex:1;min-width:1.4em;margin-left:.3em;align-self:baseline;transform-origin:0 50%;position:relative;top:-.18em}
+.js .ct-h .rr{transform:scaleX(0)}
+.js .ct-h.in .rr{transform:none;transition:transform 1.3s cubic-bezier(.3,1.16,.4,1) .25s}
+@media (max-width:760px){
+  .ct-h{display:block;white-space:normal}
+  .ct-h .hw{display:inline}
+  .ct-h .rr{display:inline-block;width:2.4em;margin-left:.25em;top:0;vertical-align:.18em}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .hs.pre .rr,.js .ct-h .rr{transform:none} .js .hs.pre .hs-m{opacity:1;transform:none} .sv-p.on{animation:none}
+}
+
+/* ---- round 2 of the pages: the open service reads at the index's scale; the closing strip arrives in one view */
+.sv-p{padding-top:calc(var(--sf) * .2)}
+.sv-p h3{font-size:clamp(28px,2.9vw,56px);line-height:1.04;letter-spacing:-.022em;font-weight:300;margin-top:.45em;max-width:12em}
+.sv-p .ld{margin-top:1.3em;font-size:var(--d4);line-height:1.3;font-weight:400;max-width:24em}
+.sv-p .bd{margin-top:.8em;font-size:var(--body);line-height:1.5}
+.sv-p .it{margin-top:4.2vh;font-size:var(--body);row-gap:.6em}
+.wk-strip{padding-top:13vh}
+.wk-strip .sub{margin-top:4.5vh}
+.wk-strip .strip{margin:6vh -3vw 9vh}
+@media (max-width:760px){
+  .ag-t{font-size:20vw}
+  .sv-p h3{font-size:8.6vw}
+  .sv-p .ld{font-size:19px}
+  .wk-strip .strip{margin:36px -10vw 48px}
+}
+.sv-p .it{grid-template-columns:1fr}
+.sv-p .ld{text-wrap:balance}
